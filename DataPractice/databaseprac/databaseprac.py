@@ -71,5 +71,24 @@ def  connect_two_table():
        db.rollback()
        print  "select failed"
 
+def  second_highest_salary():
+    """获取第二高的薪水，没有则返回空2020.3.12数据库练习"""
+    db = MySQLdb.connect(dbhost,port=3366,user=username,passwd=pwd,db='daily_practice', charset='utf8')
+    cursor = db.cursor()
+    sql = "select (select distinct Salary from Employee ORDER BY Salary DESC  LIMIT 1 OFFSET 1) as  SecondHighestSalary"
+    print sql
+    curusertask = []
+    try:
+       # 执行sql语句
+       cursor.execute(sql)
+       # 提交到数据库执行
+       results = cursor.fetchall()
+       print  "select success!"
+    except:
+       # Rollback in case there is any error
+       db.rollback()
+       print  "select failed"
+
 if  __name__=="__main__":
-    connect_two_table()
+    #connect_two_table()
+    second_highest_salary()
