@@ -18,7 +18,7 @@ def  bubbleSorting(dataList):
 
     print dataList
 
-##选择排序
+##插入排序
 def  selectSorting(dataList):
 
     #dataList = [2, 6, 3, 10, 3, 9, 1]
