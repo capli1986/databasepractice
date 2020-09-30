@@ -1,5 +1,5 @@
 # -*-  coding:utf-8 -*-
-
+import os
 
 ##冒泡排序
 def  bubbleSorting(dataList):
@@ -19,7 +19,7 @@ def  bubbleSorting(dataList):
     print dataList
 
 ##插入排序
-def  selectSorting(dataList):
+def  insertSorting(dataList):
 
     #dataList = [2, 6, 3, 10, 3, 9, 1]
     if  dataList != []:
@@ -34,6 +34,27 @@ def  selectSorting(dataList):
                 i = i+1
             j = j+1
         print dataList
+
+def  simselectSorting(dataList):
+    '''简单选择排序Simple Selection Sort,又称为直接选择排序，它的基本操作是：通过n-i次关键字的比较，"
+    "从n-i+1个关键字中选取最小的关键字，然后和第i个关键字交换，i=1,2,3,4...n-1"'''
+    if  dataList==[] or len(dataList)==1:
+        return dataList
+    i= 0
+    while(i<len(dataList)-2):
+        j= i
+        curTemp= j
+        while(j<len(dataList)-1):
+            if dataList[j+1]< dataList[curTemp]:
+                curTemp = j + 1
+            j = j + 1
+        temp = dataList[curTemp]
+
+        dataList[curTemp]=dataList[i]
+        dataList[i] = temp
+
+        i = i+1
+    return  dataList
 
 ##快速排序
 def  quickSorting(dataList):
@@ -62,5 +83,7 @@ if __name__ == '__main__':
     dataList = [2, 6, 3, 10, 3, 9, 1]
     #BubbleSorting()
     #selectSorting()
-    resultList = quickSorting(dataList)
-    print resultList
+    #resultList = quickSorting(dataList)
+    #print resultList
+    result=simselectSorting(dataList)
+    print  result
