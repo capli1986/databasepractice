@@ -9,7 +9,7 @@ def  get_str(S):
         i=1
         NS=[]
         print  "RS",RS
-        while(i<len(S)):
+        while(i<=len(S)):
             NS.append(RS[0:i])
             print  "NS",NS
             S=S[0:len(S)-i]
@@ -19,5 +19,5 @@ def  get_str(S):
         return  NS
 
 if  __name__== '__main__':
-    NS = get_str("aahhh")
+    NS = get_str("daahhh")
     print  NS
